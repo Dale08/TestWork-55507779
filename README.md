@@ -21,4 +21,14 @@
 <pre>
 git clone git@github.com:Dale08/TestWork-55507779.git
 cd TestWork-55507779
+
+docker run --rm -v $(pwd):/opt -w /opt laravelsail/php80-composer:latest composer install
+
+vendor/bin/sail up -d
+
+cp .env.example .env
+
+php artisan key:generate
+
+php artisan migrate:fresh --seed
 </pre>
